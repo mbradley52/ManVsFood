@@ -54,17 +54,18 @@ namespace ManVsFood
         //buttons
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            // Adds items from lb_Items to lb_AddedItems
+            // Adds items to lb_AddedItems
         }
 
         private void btn_Remove_Click(object sender, EventArgs e)
         {
-            //Removes items from lb_AddedItems and Adds them to lb_Items
+            //Removes items from lb_AddedItems 
+            //posible confirm dialogue?
         }
 
         private void btn_Reset_Click(object sender, EventArgs e)
         {
-            //idk my bff jill - do we even need a reset?
+            //do we even need a reset?
         }
 
         private void btn_Start_Click(object sender, EventArgs e)
@@ -97,9 +98,12 @@ namespace ManVsFood
                     //display the information of selected items
                     var challenge = lbox.SelectedItem as FoodItem;
                     lbl_ChallengeTime.Text = challenge.duration.ToString();
-                    lbl_Cost.Text = challenge.price.ToString();
+                    lbl_Cost.Text = "$" + challenge.price.ToString("F2");
                     //figure out how to set the image
-                    //picBox.Image = challenge.image;
+                    //Image doge = Image.FromFile("..\\..\\Resources\\doge.jpg");
+                    //Image cate = Image.FromFile("..\\..\\Resources\\cate.jpg");
+
+                    picBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(challenge.image);
                 }
                
             }

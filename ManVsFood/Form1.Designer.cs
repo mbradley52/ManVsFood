@@ -124,6 +124,7 @@
             this.picBox.Location = new System.Drawing.Point(865, 146);
             this.picBox.Name = "picBox";
             this.picBox.Size = new System.Drawing.Size(640, 640);
+            this.picBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox.TabIndex = 7;
             this.picBox.TabStop = false;
             // 
@@ -175,6 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1576, 1016);
             this.Controls.Add(this.lbl_MVF);
             this.Controls.Add(this.lbl_Cost);
