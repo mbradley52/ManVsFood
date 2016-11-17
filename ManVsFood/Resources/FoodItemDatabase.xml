@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item>
+		<challengename>doge challenge</challengename>
+		<calories>1000</calories>
+		<price>42.00</price>
+		<duration>1</duration>
+		<image>doge.jpg</image>
+	</item>
+	<item>
+		<challengename>cate challenge</challengename>
+		<calories>2000</calories>
+		<price>24.00</price>
+		<duration>2</duration>
+		<image>cate.jpg</image>
+	</item>
+  
+  
+  
+</items>

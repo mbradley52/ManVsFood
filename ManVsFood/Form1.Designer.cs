@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_MVF));
             this.lb_Items = new System.Windows.Forms.ListBox();
             this.lb_AddedItems = new System.Windows.Forms.ListBox();
             this.btn_Add = new System.Windows.Forms.Button();
@@ -35,23 +36,26 @@
             this.btn_Reset = new System.Windows.Forms.Button();
             this.btn_Start = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_ChallengeTime = new System.Windows.Forms.Label();
+            this.lbl_Cost = new System.Windows.Forms.Label();
             this.lbl_MVF = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_Items
             // 
+            this.lb_Items.DisplayMember = "challengename";
+            this.lb_Items.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Items.FormattingEnabled = true;
-            this.lb_Items.ItemHeight = 24;
+            this.lb_Items.ItemHeight = 17;
             this.lb_Items.Location = new System.Drawing.Point(12, 146);
             this.lb_Items.Name = "lb_Items";
-            this.lb_Items.Size = new System.Drawing.Size(283, 628);
+            this.lb_Items.Size = new System.Drawing.Size(283, 616);
             this.lb_Items.TabIndex = 0;
+            this.lb_Items.SelectedIndexChanged += new System.EventHandler(this.lb_Items_SelectedIndexChanged);
             // 
             // lb_AddedItems
             // 
@@ -61,6 +65,7 @@
             this.lb_AddedItems.Name = "lb_AddedItems";
             this.lb_AddedItems.Size = new System.Drawing.Size(283, 628);
             this.lb_AddedItems.TabIndex = 1;
+            this.lb_AddedItems.SelectedIndexChanged += new System.EventHandler(this.lb_AddedItems_SelectedIndexChanged);
             // 
             // btn_Add
             // 
@@ -112,24 +117,24 @@
             this.btn_Exit.UseVisualStyleBackColor = true;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
-            // pictureBox1
+            // picBox
             // 
-            this.pictureBox1.BackgroundImage = global::ManVsFood.Properties.Resources.photo_2015_05_19_09_58_48;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(865, 146);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(640, 640);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.picBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picBox.Image = ((System.Drawing.Image)(resources.GetObject("picBox.Image")));
+            this.picBox.Location = new System.Drawing.Point(865, 146);
+            this.picBox.Name = "picBox";
+            this.picBox.Size = new System.Drawing.Size(640, 640);
+            this.picBox.TabIndex = 7;
+            this.picBox.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(883, 812);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 25);
+            this.label1.Size = new System.Drawing.Size(185, 25);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Challenge Time:";
+            this.label1.Text = "Challenge Duration:";
             // 
             // label2
             // 
@@ -140,23 +145,21 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Cost of Failure:";
             // 
-            // label3
+            // lbl_ChallengeTime
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1103, 812);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 25);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "label3";
+            this.lbl_ChallengeTime.AutoSize = true;
+            this.lbl_ChallengeTime.Location = new System.Drawing.Point(1103, 812);
+            this.lbl_ChallengeTime.Name = "lbl_ChallengeTime";
+            this.lbl_ChallengeTime.Size = new System.Drawing.Size(0, 25);
+            this.lbl_ChallengeTime.TabIndex = 10;
             // 
-            // label4
+            // lbl_Cost
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1103, 861);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 25);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "label4";
+            this.lbl_Cost.AutoSize = true;
+            this.lbl_Cost.Location = new System.Drawing.Point(1103, 861);
+            this.lbl_Cost.Name = "lbl_Cost";
+            this.lbl_Cost.Size = new System.Drawing.Size(0, 25);
+            this.lbl_Cost.TabIndex = 11;
             // 
             // lbl_MVF
             // 
@@ -164,7 +167,7 @@
             this.lbl_MVF.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.85714F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_MVF.Location = new System.Drawing.Point(176, 45);
             this.lbl_MVF.Name = "lbl_MVF";
-            this.lbl_MVF.Size = new System.Drawing.Size(425, 75);
+            this.lbl_MVF.Size = new System.Drawing.Size(416, 74);
             this.lbl_MVF.TabIndex = 12;
             this.lbl_MVF.Text = "Man Vs Food";
             // 
@@ -174,8 +177,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1576, 1016);
             this.Controls.Add(this.lbl_MVF);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbl_Cost);
+            this.Controls.Add(this.lbl_ChallengeTime);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Exit);
@@ -185,10 +188,13 @@
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.lb_AddedItems);
             this.Controls.Add(this.lb_Items);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form_MVF";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Man Vs Food";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,11 +209,11 @@
         private System.Windows.Forms.Button btn_Reset;
         private System.Windows.Forms.Button btn_Start;
         private System.Windows.Forms.Button btn_Exit;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_ChallengeTime;
+        private System.Windows.Forms.Label lbl_Cost;
         private System.Windows.Forms.Label lbl_MVF;
     }
 }
