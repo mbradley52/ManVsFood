@@ -63,9 +63,9 @@ namespace ManVsFood.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap photo_2015_05_19_09_58_48 {
+        internal static System.Drawing.Bitmap doge {
             get {
-                object obj = ResourceManager.GetObject("photo_2015-05-19_09-58-48", resourceCulture);
+                object obj = ResourceManager.GetObject("doge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

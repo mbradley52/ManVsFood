@@ -7,73 +7,209 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
+
 
 namespace ManVsFood
 {
     public partial class Form_MVF : Form
     {
+        private FoodItemCollection FoodItems;
+         
+            
         public Form_MVF()
         {
             InitializeComponent();
+            //Loads our database into the form - using XML serializer 
+            using (XmlReader reader = XmlReader.Create("..\\..\\Resources\\FoodItemDatabase.xml"))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(FoodItemCollection));
+                FoodItems = (FoodItemCollection)serializer.Deserialize(reader);
+                
+                foreach (var item in FoodItems.Items)
+                {
+                    //add items from the database into the list box
+                    lb_Items.Items.Add(item);
+                }
+            }
         }
+        //More XML database stuff, <items> root 
+        [XmlRoot("items")]
+        public class FoodItemCollection
+        {
+            //<item> element
+            [XmlElement("item")]
+            //make a list
+            public List<FoodItem> Items { get; set; }
+        }
+        
+        public class FoodItem
+        {
+            //declare variable names, get them from FoodItemsDatabase.xml
+  
+            public string challengename { get; set; }
+            public string description { get; set; }
+            public int calories { get; set; }
+            public double price { get; set; }
+            public double duration { get; set; }
+            public string image { get; set; }
+        }
+        
 
+        //buttons
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            // Adds items from lb_Items to lb_AddedItems
-        }
+            // Opens a new form and adds a new challenge item to lb_Items
+            Form_ChallengeInfo challengeInfo = new Form_ChallengeInfo();
+            challengeInfo.ShowDialog();
 
-        private void btn_Remove_Click(object sender, EventArgs e)
-        {
-            //Removes items from lb_AddedItems and Adds them to lb_Items
-        }
+           if (challengeInfo.DialogSave == true)
+            {
+                FoodItem newitem = challengeInfo.createItem;
+                lb_Items.Items.Add(newitem);
+                FoodItems.Items.Add(newitem);
+                XmlWriterSettings settings = new XmlWriterSettings();
+                //add xml settings here - fix word wrap issue
+                //settings.
 
-        private void btn_Reset_Click(object sender, EventArgs e)
-        {
-            //idk my bff jill
-        }
 
-        private void btn_Start_Click(object sender, EventArgs e)
-        {
-
-            // Start the timer.
-            timeLeft = 30;
-            timerDisplay.Text = "30 seconds";
-            timer1.Start();
+                using (XmlWriter writer = XmlWriter.Create("..\\..\\Resources\\FoodItemDatabase.xml", settings))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(FoodItemCollection));
+                    serializer.Serialize(writer, FoodItems);
+                }
+      
+            }
         }
+       
 
         private void btn_Exit_Click(object sender, EventArgs e)
         {
-            //exits the app
-            this.Close();
-            //maybe add a confirmation dialogue
-
-            //MessageBox.Show("Are you sure you want ot Exit?", "Exit", MessageBoxButtons.YesNo);
+            DialogResult response;
+            response = MessageBox.Show("Are you sure you want to exit?", "Confirming",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (response == DialogResult.Yes)
+            {
+                this.Close();
+            }
 
         }
-        int timeLeft;
+        double challengeTimer;
+        private void lb_Items_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //for debugging
+            int a = 0;
+            //What we do when we select an item
+            var lbox = sender as ListBox;
+            if (lbox != null)
+            {
+                if (lbox.SelectedItem != null)
+                {
+                                                     
+                    //Get the loaded XML data into a variable "challenge"
+                    var challenge = lbox.SelectedItem as FoodItem;
+                    //display the information of selected items in appropriate labels
+
+                    //Challenge Duration display
+                    lbl_ChallengeTime.Text = (challenge.duration * 60 ).ToString()+ " minute(s)";
+                    //Gets the time for the challenge
+                    challengeTimer = challenge.duration;
+                    //Displays the cost of the challenge
+                    lbl_Cost.Text = "$" + challenge.price.ToString("F2");
+                    //display an image
+                    picBox.ImageLocation = challenge.image;
+                    //Needed for when a new item gets selected the timer stops.
+                    timer1.Stop();
+                    // Initial timer display
+                    timerDisplay.Text = (challenge.duration *60).ToString() + " minutes" ;
+                    // Description display
+                    descriptionLabel.Text = challenge.description.ToString();
+                 }
+
+            }
+        }
+
+
+        private void lb_AddedItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form_MVF_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        bool startCheck = false;
+        double displayTimer;
+        //paused boolean controls the timer for pauses
+        bool paused = false;
+        double minutes = 0;
+        double seconds = 0;
+
+        private void btn_Start_Click(object sender, EventArgs e)
+        {
+            if (paused == false)
+            { 
+                timerDisplay.Text = "";
+                //Conver minutes to seconds
+                displayTimer = challengeTimer;
+                minutes = displayTimer * 60;
+                startCheck = true;
+                // Start the correct time
+                minutes--;
+                seconds = 59;
+                timerDisplay.Text = timerDisplay.Text = minutes + " minutes & \n" + seconds + " seconds";
+            }
+
+            timer1.Start();
+        }
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (timeLeft > 0)
+            
+            paused = false;
+            if (startCheck == true)
             {
-                // Display the new time left
-                // by updating the Time Left label.
-                timeLeft = timeLeft - 1;
-                timerDisplay.Text = timeLeft + " seconds";
+                if (minutes >=0 && seconds > 0)
+                {               
+                    seconds--;
+                    if (seconds <= 0)
+                    {
+                        minutes--;
+                        seconds = seconds + 59;
+                    }
+                timerDisplay.Text = minutes + " minutes & \n" + seconds + " seconds";
+                }
+                else
+                {
+                    MessageBox.Show("TIME IS UP");
+                    timer1.Stop();
+                }
+
             }
             else
             {
-                // If the user ran out of time, stop the timer, show
-                // a MessageBox, and fill in the answers.
-                timer1.Stop();
-                timerDisplay.Text = "Time's up!";
-               
-                btn_Start.Enabled = true;
+                startCheck = false;
             }
+            
         }
 
-        private void timerDisplay_Click(object sender, EventArgs e)
+        private void clearButton_Click(object sender, EventArgs e)
         {
+            timerDisplay.Text = "";
+            lbl_ChallengeTime.Text = "";
+            lbl_Cost.Text = "";
+            descriptionLabel.Text = "";
+            timer1.Stop();
+            paused = false;
+        }
 
+        private void pauseButton_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            paused = true;
         }
     }
 }
