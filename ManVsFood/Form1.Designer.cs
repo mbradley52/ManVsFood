@@ -150,7 +150,7 @@
             // 
             this.lbl_MVF.AutoSize = true;
             this.lbl_MVF.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.85714F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_MVF.Location = new System.Drawing.Point(250, 5);
+            this.lbl_MVF.Location = new System.Drawing.Point(308, 9);
             this.lbl_MVF.Name = "lbl_MVF";
             this.lbl_MVF.Size = new System.Drawing.Size(244, 44);
             this.lbl_MVF.TabIndex = 12;
@@ -170,7 +170,7 @@
             // 
             this.lbl_DescribeStatic.AutoSize = true;
             this.lbl_DescribeStatic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_DescribeStatic.Location = new System.Drawing.Point(356, 293);
+            this.lbl_DescribeStatic.Location = new System.Drawing.Point(365, 292);
             this.lbl_DescribeStatic.Name = "lbl_DescribeStatic";
             this.lbl_DescribeStatic.Size = new System.Drawing.Size(79, 17);
             this.lbl_DescribeStatic.TabIndex = 14;
@@ -228,7 +228,7 @@
             // TimerLabelText
             // 
             this.TimerLabelText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TimerLabelText.Location = new System.Drawing.Point(709, 45);
+            this.TimerLabelText.Location = new System.Drawing.Point(697, 45);
             this.TimerLabelText.Name = "TimerLabelText";
             this.TimerLabelText.Size = new System.Drawing.Size(44, 17);
             this.TimerLabelText.TabIndex = 21;

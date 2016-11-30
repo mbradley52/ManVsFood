@@ -140,7 +140,7 @@ namespace ManVsFood
         {
 
         }
-
+        //Startcheck makes sure the timer is not running when another item is selected. Before the timer would auto start.
         bool startCheck = false;
         double displayTimer;
         //paused boolean controls the timer for pauses
@@ -155,6 +155,7 @@ namespace ManVsFood
                 timerDisplay.Text = "";
                 //Conver minutes to seconds
                 displayTimer = challengeTimer;
+                // Times 60 to convert to minutes from hours
                 minutes = displayTimer * 60;
                 startCheck = true;
                 // Start the correct time
@@ -164,30 +165,39 @@ namespace ManVsFood
             }
 
             timer1.Start();
-        }
+         }
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+            // pause and startcheck are variables to control the timer properly
             paused = false;
             if (startCheck == true)
-            {
+            { 
+                
                 if (minutes >=0 && seconds > 0)
-                {               
+                {             
                     seconds--;
-                    if (seconds <= 0)
+                    //Stop the timer when the timit limit is up
+                    if(minutes == 0 && seconds == 0)
+                    {
+                        timerDisplay.Text = minutes + " minutes & \n" + seconds + " seconds";
+                        MessageBox.Show("TIME IS UP");
+                        startCheck = false;
+                        timer1.Stop();
+                    }
+                    //decrement the minutes when seconds hit 0
+                    else if (seconds <= 0)
                     {
                         minutes--;
-                        seconds = seconds + 59;
+                        seconds = seconds +60;
+                        timerDisplay.Text = minutes + " minutes & \n" + seconds + " seconds";
                     }
-                timerDisplay.Text = minutes + " minutes & \n" + seconds + " seconds";
-                }
-                else
-                {
-                    MessageBox.Show("TIME IS UP");
-                    timer1.Stop();
-                }
-
+                    //update timer display when the other if statements have not been triggered. 
+                    else
+                    {
+                        timerDisplay.Text = minutes + " minutes & \n" + seconds + " seconds";
+                    }
+                }               
             }
             else
             {
