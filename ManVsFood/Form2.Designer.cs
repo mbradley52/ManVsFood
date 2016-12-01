@@ -32,9 +32,9 @@
             this.btn2_Save = new System.Windows.Forms.Button();
             this.btn2_Exit = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.durationBox = new System.Windows.Forms.TextBox();
             this.txt2_Image = new System.Windows.Forms.TextBox();
             this.lbl2_Image = new System.Windows.Forms.Label();
-            this.cb_Duration = new System.Windows.Forms.ComboBox();
             this.txt2_Price = new System.Windows.Forms.TextBox();
             this.txt2_Calories = new System.Windows.Forms.TextBox();
             this.txt2_Description = new System.Windows.Forms.TextBox();
@@ -44,14 +44,16 @@
             this.lbl2_Calories = new System.Windows.Forms.Label();
             this.lbl2_ShortDesc = new System.Windows.Forms.Label();
             this.lbl2_ChallengeName = new System.Windows.Forms.Label();
+            this.infoLabel1 = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn2_Browse
             // 
-            this.btn2_Browse.Location = new System.Drawing.Point(407, 245);
+            this.btn2_Browse.Location = new System.Drawing.Point(201, 137);
+            this.btn2_Browse.Margin = new System.Windows.Forms.Padding(2);
             this.btn2_Browse.Name = "btn2_Browse";
-            this.btn2_Browse.Size = new System.Drawing.Size(110, 36);
+            this.btn2_Browse.Size = new System.Drawing.Size(60, 20);
             this.btn2_Browse.TabIndex = 11;
             this.btn2_Browse.Text = "Browse";
             this.btn2_Browse.UseVisualStyleBackColor = true;
@@ -59,9 +61,10 @@
             // 
             // btn2_Save
             // 
-            this.btn2_Save.Location = new System.Drawing.Point(303, 377);
+            this.btn2_Save.Location = new System.Drawing.Point(165, 204);
+            this.btn2_Save.Margin = new System.Windows.Forms.Padding(2);
             this.btn2_Save.Name = "btn2_Save";
-            this.btn2_Save.Size = new System.Drawing.Size(110, 36);
+            this.btn2_Save.Size = new System.Drawing.Size(60, 20);
             this.btn2_Save.TabIndex = 13;
             this.btn2_Save.Text = "Save";
             this.btn2_Save.UseVisualStyleBackColor = true;
@@ -69,9 +72,10 @@
             // 
             // btn2_Exit
             // 
-            this.btn2_Exit.Location = new System.Drawing.Point(447, 377);
+            this.btn2_Exit.Location = new System.Drawing.Point(244, 204);
+            this.btn2_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn2_Exit.Name = "btn2_Exit";
-            this.btn2_Exit.Size = new System.Drawing.Size(110, 36);
+            this.btn2_Exit.Size = new System.Drawing.Size(60, 20);
             this.btn2_Exit.TabIndex = 14;
             this.btn2_Exit.Text = "Exit";
             this.btn2_Exit.UseVisualStyleBackColor = true;
@@ -79,9 +83,10 @@
             // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.infoLabel1);
+            this.groupBox.Controls.Add(this.durationBox);
             this.groupBox.Controls.Add(this.txt2_Image);
             this.groupBox.Controls.Add(this.lbl2_Image);
-            this.groupBox.Controls.Add(this.cb_Duration);
             this.groupBox.Controls.Add(this.btn2_Browse);
             this.groupBox.Controls.Add(this.txt2_Price);
             this.groupBox.Controls.Add(this.txt2_Calories);
@@ -92,124 +97,142 @@
             this.groupBox.Controls.Add(this.lbl2_Calories);
             this.groupBox.Controls.Add(this.lbl2_ShortDesc);
             this.groupBox.Controls.Add(this.lbl2_ChallengeName);
-            this.groupBox.Location = new System.Drawing.Point(12, 46);
+            this.groupBox.Location = new System.Drawing.Point(7, 25);
+            this.groupBox.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(545, 303);
+            this.groupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox.Size = new System.Drawing.Size(297, 164);
             this.groupBox.TabIndex = 15;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Information";
             // 
+            // durationBox
+            // 
+            this.durationBox.Location = new System.Drawing.Point(98, 113);
+            this.durationBox.Margin = new System.Windows.Forms.Padding(2);
+            this.durationBox.Name = "durationBox";
+            this.durationBox.Size = new System.Drawing.Size(95, 20);
+            this.durationBox.TabIndex = 25;
+            // 
             // txt2_Image
             // 
-            this.txt2_Image.Location = new System.Drawing.Point(180, 252);
+            this.txt2_Image.Location = new System.Drawing.Point(98, 137);
+            this.txt2_Image.Margin = new System.Windows.Forms.Padding(2);
             this.txt2_Image.Name = "txt2_Image";
-            this.txt2_Image.Size = new System.Drawing.Size(171, 29);
+            this.txt2_Image.Size = new System.Drawing.Size(95, 20);
             this.txt2_Image.TabIndex = 24;
             // 
             // lbl2_Image
             // 
             this.lbl2_Image.AutoSize = true;
-            this.lbl2_Image.Location = new System.Drawing.Point(16, 257);
+            this.lbl2_Image.Location = new System.Drawing.Point(11, 140);
+            this.lbl2_Image.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl2_Image.Name = "lbl2_Image";
-            this.lbl2_Image.Size = new System.Drawing.Size(66, 25);
+            this.lbl2_Image.Size = new System.Drawing.Size(39, 13);
             this.lbl2_Image.TabIndex = 23;
-            this.lbl2_Image.Text = "Image";
-            // 
-            // cb_Duration
-            // 
-            this.cb_Duration.FormattingEnabled = true;
-            this.cb_Duration.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.cb_Duration.Location = new System.Drawing.Point(180, 209);
-            this.cb_Duration.Name = "cb_Duration";
-            this.cb_Duration.Size = new System.Drawing.Size(171, 32);
-            this.cb_Duration.TabIndex = 22;
+            this.lbl2_Image.Text = "Image:";
             // 
             // txt2_Price
             // 
-            this.txt2_Price.Location = new System.Drawing.Point(180, 162);
+            this.txt2_Price.Location = new System.Drawing.Point(98, 88);
+            this.txt2_Price.Margin = new System.Windows.Forms.Padding(2);
             this.txt2_Price.Name = "txt2_Price";
-            this.txt2_Price.Size = new System.Drawing.Size(171, 29);
+            this.txt2_Price.Size = new System.Drawing.Size(95, 20);
             this.txt2_Price.TabIndex = 21;
             // 
             // txt2_Calories
             // 
-            this.txt2_Calories.Location = new System.Drawing.Point(180, 120);
+            this.txt2_Calories.Location = new System.Drawing.Point(98, 65);
+            this.txt2_Calories.Margin = new System.Windows.Forms.Padding(2);
             this.txt2_Calories.Name = "txt2_Calories";
-            this.txt2_Calories.Size = new System.Drawing.Size(171, 29);
+            this.txt2_Calories.Size = new System.Drawing.Size(95, 20);
             this.txt2_Calories.TabIndex = 20;
             // 
             // txt2_Description
             // 
-            this.txt2_Description.Location = new System.Drawing.Point(180, 75);
+            this.txt2_Description.Location = new System.Drawing.Point(98, 41);
+            this.txt2_Description.Margin = new System.Windows.Forms.Padding(2);
             this.txt2_Description.Name = "txt2_Description";
-            this.txt2_Description.Size = new System.Drawing.Size(171, 29);
+            this.txt2_Description.Size = new System.Drawing.Size(95, 20);
             this.txt2_Description.TabIndex = 19;
             // 
             // txt_ChallengeName
             // 
-            this.txt_ChallengeName.Location = new System.Drawing.Point(180, 33);
+            this.txt_ChallengeName.Location = new System.Drawing.Point(98, 18);
+            this.txt_ChallengeName.Margin = new System.Windows.Forms.Padding(2);
             this.txt_ChallengeName.Name = "txt_ChallengeName";
-            this.txt_ChallengeName.Size = new System.Drawing.Size(171, 29);
+            this.txt_ChallengeName.Size = new System.Drawing.Size(95, 20);
             this.txt_ChallengeName.TabIndex = 18;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 209);
+            this.label5.Location = new System.Drawing.Point(11, 116);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 25);
+            this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 17;
-            this.label5.Text = "Duration";
+            this.label5.Text = "Duration:";
             // 
             // lbl2_Price
             // 
             this.lbl2_Price.AutoSize = true;
-            this.lbl2_Price.Location = new System.Drawing.Point(16, 162);
+            this.lbl2_Price.Location = new System.Drawing.Point(11, 91);
+            this.lbl2_Price.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl2_Price.Name = "lbl2_Price";
-            this.lbl2_Price.Size = new System.Drawing.Size(56, 25);
+            this.lbl2_Price.Size = new System.Drawing.Size(34, 13);
             this.lbl2_Price.TabIndex = 16;
-            this.lbl2_Price.Text = "Price";
+            this.lbl2_Price.Text = "Price:";
             // 
             // lbl2_Calories
             // 
             this.lbl2_Calories.AutoSize = true;
-            this.lbl2_Calories.Location = new System.Drawing.Point(16, 120);
+            this.lbl2_Calories.Location = new System.Drawing.Point(9, 68);
+            this.lbl2_Calories.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl2_Calories.Name = "lbl2_Calories";
-            this.lbl2_Calories.Size = new System.Drawing.Size(139, 25);
+            this.lbl2_Calories.Size = new System.Drawing.Size(74, 13);
             this.lbl2_Calories.TabIndex = 15;
             this.lbl2_Calories.Text = "Total Calories:";
             // 
             // lbl2_ShortDesc
             // 
             this.lbl2_ShortDesc.AutoSize = true;
-            this.lbl2_ShortDesc.Location = new System.Drawing.Point(16, 75);
+            this.lbl2_ShortDesc.Location = new System.Drawing.Point(9, 44);
+            this.lbl2_ShortDesc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl2_ShortDesc.Name = "lbl2_ShortDesc";
-            this.lbl2_ShortDesc.Size = new System.Drawing.Size(161, 25);
+            this.lbl2_ShortDesc.Size = new System.Drawing.Size(91, 13);
             this.lbl2_ShortDesc.TabIndex = 14;
-            this.lbl2_ShortDesc.Text = "Short Description";
+            this.lbl2_ShortDesc.Text = "Short Description:";
             // 
             // lbl2_ChallengeName
             // 
             this.lbl2_ChallengeName.AutoSize = true;
-            this.lbl2_ChallengeName.Location = new System.Drawing.Point(16, 36);
+            this.lbl2_ChallengeName.Location = new System.Drawing.Point(9, 20);
+            this.lbl2_ChallengeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl2_ChallengeName.Name = "lbl2_ChallengeName";
-            this.lbl2_ChallengeName.Size = new System.Drawing.Size(158, 25);
+            this.lbl2_ChallengeName.Size = new System.Drawing.Size(88, 13);
             this.lbl2_ChallengeName.TabIndex = 13;
-            this.lbl2_ChallengeName.Text = "Challenge Name";
+            this.lbl2_ChallengeName.Text = "Challenge Name:";
+            // 
+            // infoLabel1
+            // 
+            this.infoLabel1.AutoSize = true;
+            this.infoLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoLabel1.Location = new System.Drawing.Point(198, 116);
+            this.infoLabel1.Name = "infoLabel1";
+            this.infoLabel1.Size = new System.Drawing.Size(56, 13);
+            this.infoLabel1.TabIndex = 26;
+            this.infoLabel1.Text = "( in hours )";
             // 
             // Form_ChallengeInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 450);
+            this.ClientSize = new System.Drawing.Size(323, 244);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.btn2_Exit);
             this.Controls.Add(this.btn2_Save);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_ChallengeInfo";
             this.Text = "Enter Challenge Information";
             this.groupBox.ResumeLayout(false);
@@ -225,7 +248,6 @@
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.TextBox txt2_Image;
         private System.Windows.Forms.Label lbl2_Image;
-        private System.Windows.Forms.ComboBox cb_Duration;
         private System.Windows.Forms.TextBox txt2_Price;
         private System.Windows.Forms.TextBox txt2_Calories;
         private System.Windows.Forms.TextBox txt2_Description;
@@ -235,5 +257,7 @@
         private System.Windows.Forms.Label lbl2_Calories;
         private System.Windows.Forms.Label lbl2_ShortDesc;
         private System.Windows.Forms.Label lbl2_ChallengeName;
+        private System.Windows.Forms.TextBox durationBox;
+        private System.Windows.Forms.Label infoLabel1;
     }
 }
