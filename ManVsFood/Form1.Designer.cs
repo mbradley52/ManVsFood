@@ -70,7 +70,7 @@
             this.btn_Add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(168, 44);
-            this.btn_Add.TabIndex = 2;
+            this.btn_Add.TabIndex = 1;
             this.btn_Add.Text = "Add a New Challenge";
             this.btn_Add.UseVisualStyleBackColor = true;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
@@ -81,7 +81,7 @@
             this.btn_Start.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Start.Name = "btn_Start";
             this.btn_Start.Size = new System.Drawing.Size(129, 39);
-            this.btn_Start.TabIndex = 5;
+            this.btn_Start.TabIndex = 3;
             this.btn_Start.Text = "Start";
             this.btn_Start.UseVisualStyleBackColor = true;
             this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
@@ -134,7 +134,7 @@
             this.lbl_ChallengeTime.Location = new System.Drawing.Point(722, 273);
             this.lbl_ChallengeTime.Name = "lbl_ChallengeTime";
             this.lbl_ChallengeTime.Size = new System.Drawing.Size(135, 24);
-            this.lbl_ChallengeTime.TabIndex = 10;
+            this.lbl_ChallengeTime.TabIndex = 8;
             this.lbl_ChallengeTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_Cost
@@ -143,7 +143,7 @@
             this.lbl_Cost.Location = new System.Drawing.Point(721, 306);
             this.lbl_Cost.Name = "lbl_Cost";
             this.lbl_Cost.Size = new System.Drawing.Size(135, 24);
-            this.lbl_Cost.TabIndex = 11;
+            this.lbl_Cost.TabIndex = 9;
             this.lbl_Cost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_MVF
@@ -184,7 +184,7 @@
             this.descriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(234, 157);
-            this.descriptionLabel.TabIndex = 15;
+            this.descriptionLabel.TabIndex = 2;
             this.descriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1
@@ -200,7 +200,7 @@
             this.timerDisplay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.timerDisplay.Name = "timerDisplay";
             this.timerDisplay.Size = new System.Drawing.Size(293, 171);
-            this.timerDisplay.TabIndex = 16;
+            this.timerDisplay.TabIndex = 7;
             this.timerDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // clearButton
@@ -209,7 +209,7 @@
             this.clearButton.Margin = new System.Windows.Forms.Padding(4);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(128, 39);
-            this.clearButton.TabIndex = 19;
+            this.clearButton.TabIndex = 5;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
@@ -220,7 +220,7 @@
             this.pauseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pauseButton.Name = "pauseButton";
             this.pauseButton.Size = new System.Drawing.Size(129, 39);
-            this.pauseButton.TabIndex = 20;
+            this.pauseButton.TabIndex = 4;
             this.pauseButton.Text = "Pause";
             this.pauseButton.UseVisualStyleBackColor = true;
             this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
@@ -236,9 +236,11 @@
             // 
             // Form_MVF
             // 
+            this.AcceptButton = this.btn_Start;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.CancelButton = this.btn_Exit;
             this.ClientSize = new System.Drawing.Size(884, 488);
             this.Controls.Add(this.TimerLabelText);
             this.Controls.Add(this.pauseButton);
